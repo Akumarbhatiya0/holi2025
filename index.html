@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holi 2025: Wishes for Friends</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background: linear-gradient(135deg, #FF66B2, #FFD700, #8A2BE2); /* Gradient Holi background */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            max-width: 600px;
+        }
+
+        h1 {
+            color: #e91e63; /* Pinkish color for Holi */
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .friend-wishes {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .friend-wishes p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .countdown {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #2196f3;
+            margin-top: 20px;
+        }
+
+        #timer {
+            margin-top: 10px;
+        }
+
+        .color-splash {
+          position: fixed;
+          width: 100px;
+          height: 100px;
+          border-radius: 50%;
+          pointer-events: none; /* Prevent interaction */
+          opacity: 0.7;
+          animation: splash 2s linear infinite;
+        }
+
+        @keyframes splash {
+          0% { transform: translate(0, 0); }
+          100% { transform: translate(calc(100vw - 100px), calc(100vh - 100px)); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Happy Holi 2025, Friends!</h1>
+
+        <div class="friend-wishes">
+            <p>Dear friends,</p>
+            <p>May your life be filled with the vibrant colors of joy, love, and happiness this Holi. Let's create unforgettable memories together!</p>
+            <p>Wishing you a Holi filled with sweet moments and colorful laughter. Happy Holi!</p>
+            <p>May the colors of Holi bring new beginnings and bright opportunities into your life. Have a fantastic celebration!</p>
+        </div>
+
+        <div class="countdown">
+            Countdown to Holi 2025:
+            <div id="timer"></div>
+        </div>
+    </div>
+
+    <script>
+        function updateCountdown() {
+            const holiDate = new Date("March 14, 2025 00:00:00").getTime();
+            const now = new Date().getTime();
+            const difference = holiDate - now;
+
+            if (difference < 0) {
+                document.getElementById("timer").innerHTML = "Holi 2025 is here!";
+                return;
+            }
+
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            document.getElementById("timer").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        //Color Splash Animation
+        const colors = ['red', 'blue', 'green', 'yellow', 'purple', 'orange'];
+        setInterval(() => {
+          const color = colors[Math.floor(Math.random() * colors.length)];
+          const splash = document.createElement('div');
+          splash.classList.add('color-splash');
+          splash.style.backgroundColor = color;
+          document.body.appendChild(splash);
+          setTimeout(() => splash.remove(), 2000); // Remove splash after animation
+        }, 1000);
+    </script>
+</body>
+</html>
